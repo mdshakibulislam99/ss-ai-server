@@ -5,7 +5,7 @@ QueueJob entity - Represents a background job
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from enum import Enum
-from typing import Dict,  Optional
+from typing import Any,  Dict,  Optional
 
 
 class JobStatus(str, Enum):
@@ -48,7 +48,7 @@ class QueueJob:
     started_at: Optional[datetime] = None
     completed_at: Optional[datetime] = None
     
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         """Initialize default values"""
         if self.created_at is None:
             self.created_at = datetime.now(timezone.utc)

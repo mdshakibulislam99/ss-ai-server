@@ -3,7 +3,7 @@ SearchResult entity - Represents a search result
 """
 
 from dataclasses import dataclass
-from typing import Dict,  Optional
+from typing import Any,  Dict,  Optional
 
 
 @dataclass
@@ -16,7 +16,7 @@ class SearchResult:
     rank: int = 0
     metadata: Optional[Dict[str, Any]] = None
     
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         """Initialize default values"""
         if self.product_data is None:
             self.product_data = {}

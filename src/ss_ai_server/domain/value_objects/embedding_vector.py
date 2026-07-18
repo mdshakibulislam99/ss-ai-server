@@ -17,7 +17,7 @@ class EmbeddingVector:
     dimensions: int
     version: Optional[str] = None
     
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         """Validate vector"""
         if not isinstance(self.values, np.ndarray):
             raise TypeError("Values must be a numpy array")

@@ -4,7 +4,7 @@ ApiKey entity - Represents an API key for authentication
 
 from dataclasses import dataclass
 from datetime import datetime, timezone
-from typing import Dict,  List, Optional
+from typing import Any,  Dict,  List, Optional
 
 
 @dataclass
@@ -23,7 +23,7 @@ class ApiKey:
     expires_at: Optional[datetime] = None
     last_used_at: Optional[datetime] = None
     
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         """Initialize default values"""
         if self.ip_whitelist is None:
             self.ip_whitelist = []

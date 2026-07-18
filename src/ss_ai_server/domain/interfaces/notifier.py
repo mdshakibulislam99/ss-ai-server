@@ -3,7 +3,7 @@ Notifier interface - Abstract base class for notifications
 """
 
 from abc import ABC, abstractmethod
-from typing import Dict,  Optional
+from typing import Any,  Dict,  Optional
 
 
 class Notifier(ABC):

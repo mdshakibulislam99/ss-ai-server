@@ -3,7 +3,7 @@ SearchResponse - Response DTO for image search
 """
 
 from dataclasses import dataclass
-from typing import Dict,  List, Optional
+from typing import Any,  Dict,  List, Optional
 
 from ...domain.entities.search_result import SearchResult
 from ...domain.value_objects.embedding_vector import EmbeddingVector

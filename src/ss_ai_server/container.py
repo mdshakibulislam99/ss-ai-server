@@ -4,7 +4,7 @@ Dependency Injection Container
 Service container for managing dependencies and their lifetimes
 """
 
-from typing import Dict,  Type, TypeVar, Generic, Optional
+from typing import Any,  Dict,  Type, TypeVar, Generic, Optional
 from enum import Enum
 
 from .config.settings import Settings

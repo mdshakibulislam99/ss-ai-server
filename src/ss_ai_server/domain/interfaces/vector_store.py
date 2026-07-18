@@ -3,7 +3,7 @@ Vector Store interface - Abstract base class for vector databases
 """
 
 from abc import ABC, abstractmethod
-from typing import Dict,  List, Optional, Tuple
+from typing import Any,  Dict,  List, Optional, Tuple
 
 from ..value_objects.embedding_vector import EmbeddingVector
 from ..entities.search_result import SearchResult

@@ -4,7 +4,7 @@ Embedding entity - Represents a vector embedding
 
 from dataclasses import dataclass
 from datetime import datetime, timezone
-from typing import Dict,  Optional
+from typing import Any,  Dict,  Optional
 
 
 @dataclass
@@ -20,7 +20,7 @@ class Embedding:
     metadata: Optional[Dict[str, Any]] = None
     created_at: Optional[datetime] = None
     
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         """Initialize default values"""
         if self.metadata is None:
             self.metadata = {}

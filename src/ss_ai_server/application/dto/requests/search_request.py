@@ -15,7 +15,7 @@ class SearchRequest:
     threshold: float = 0.7
     cache_key: Optional[str] = None
     
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         """Validate request"""
         if self.limit < 1:
             raise ValueError("Limit must be at least 1")
