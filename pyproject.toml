@@ -1,0 +1,137 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ss-ai-server"
+version = "1.0.0"
+description = "Production-grade AI backend for WordPress plugins"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [
+    {name = "SS AI Team", email = "team@ss-ai.com"}
+]
+keywords = ["ai", "image-search", "wordpress", "backend", "api"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: FastAPI",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    # Core Framework
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    
+    # Database
+    "sqlalchemy>=2.0.0",
+    "alembic>=1.12.0",
+    "psycopg2-binary>=2.9.9",
+    "asyncpg>=0.29.0",
+    
+    # Vector Database
+    "faiss-cpu>=1.7.4",
+    "hnswlib>=0.8.0",
+    "chromadb>=0.4.18",
+    
+    # AI/ML
+    "torch>=2.1.0",
+    "torchvision>=0.16.0",
+    "open-clip-torch>=2.23.0",
+    "transformers>=4.35.0",
+    "Pillow>=10.1.0",
+    "numpy>=1.24.0",
+    
+    # Queue & Cache
+    "redis>=5.0.0",
+    "celery>=5.3.0",
+    "msgpack>=1.0.7",
+    
+    # Utilities
+    "python-multipart>=0.0.6",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "python-dotenv>=1.0.0",
+    "httpx>=0.25.0",
+    "aiofiles>=23.2.0",
+    "tenacity>=8.2.3",
+    
+    # Monitoring & Logging
+    "prometheus-client>=0.19.0",
+    "structlog>=23.2.0",
+    "python-json-logger>=2.0.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.12.0",
+    "ruff>=0.1.8",
+    "mypy>=1.7.0",
+    "pre-commit>=3.5.0",
+    "ipython>=8.18.0",
+]
+
+gpu = [
+    "faiss-gpu>=1.7.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/mdshakibulislam99/ss-ai-image-search-ai-side"
+Documentation = "https://docs.ss-ai-server.com"
+Repository = "https://github.com/mdshakibulislam99/ss-ai-image-search-ai-side"
+Issues = "https://github.com/mdshakibulislam99/ss-ai-image-search-ai-side/issues"
+
+[project.scripts]
+ss-ai-server = "ss_ai_server.main:run"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.yml", "*.json", "*.env.example"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311", "py312"]
+include = '\.pyi?$'
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=src --cov-report=html --cov-report=term"
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["*/tests/*", "*/__pycache__/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]
