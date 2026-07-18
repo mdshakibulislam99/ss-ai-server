@@ -4,7 +4,7 @@ AI Provider Factory
 Factory pattern implementation for creating AI providers
 """
 
-from typing import Dict, Type, Optional
+from typing import Dict,  Type, Optional
 
 from ..domain.interfaces.ai_provider import AIProvider
 from .base_provider import BaseAIProvider

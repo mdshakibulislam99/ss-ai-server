@@ -3,7 +3,7 @@ AI Provider interface - Abstract base class for AI providers
 """
 
 from abc import ABC, abstractmethod
-from typing import Dict, List, Optional, Union
+from typing import Dict,  List, Optional, Union
 
 from ..value_objects.embedding_vector import EmbeddingVector
 

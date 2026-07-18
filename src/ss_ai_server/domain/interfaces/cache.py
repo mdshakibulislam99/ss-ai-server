@@ -3,7 +3,7 @@ Cache interface - Abstract base class for caching
 """
 
 from abc import ABC, abstractmethod
-from typing import Generic, Optional, TypeVar
+from typing import Dict,  Generic, Optional, TypeVar
 
 K = TypeVar("K")
 V = TypeVar("V")
@@ -38,11 +38,11 @@ class Cache(ABC, Generic[K, V]):
         pass
     
     @abstractmethod
-    async def get_many(self, keys: list[K]) -> dict[K, V]:
+    async def get_many(self, keys: list[K]) -> Dict[K, V]:
         """Get multiple values"""
         pass
     
     @abstractmethod
-    async def set_many(self, mapping: dict[K, V], ttl: Optional[int] = None) -> None:
+    async def set_many(self, mapping: Dict[K, V], ttl: Optional[int] = None) -> None:
         """Set multiple values"""
         pass

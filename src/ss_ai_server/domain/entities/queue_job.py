@@ -5,7 +5,7 @@ QueueJob entity - Represents a background job
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from enum import Enum
-from typing import Any, Dict, Optional
+from typing import Dict,  Optional
 
 
 class JobStatus(str, Enum):

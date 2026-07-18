@@ -3,7 +3,7 @@ EmbeddingVector value object - Represents a vector embedding
 """
 
 from dataclasses import dataclass
-from typing import Any, List, Optional
+from typing import List, Optional
 
 import numpy as np
 

@@ -2,7 +2,7 @@
 Base Vector Store - Base implementation for vector stores
 """
 
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Dict,  List, Optional, Tuple
 
 from ...domain.interfaces.vector_store import VectorStore, VectorStoreStats
 from ...domain.value_objects.embedding_vector import EmbeddingVector

@@ -2,7 +2,7 @@
 Memory Cache - In-memory cache implementation
 """
 
-from typing import Any, Optional
+from typing import Dict,  Optional
 
 from ...domain.interfaces.cache import Cache
 
@@ -72,7 +72,7 @@ class MemoryCache(Cache):
         """Clear all values"""
         self._cache.clear()
     
-    async def get_many(self, keys: list[str]) -> dict[str, Any]:
+    async def get_many(self, keys: list[str]) -> Dict[str, Any]:
         """Get multiple values"""
         result = {}
         for key in keys:
@@ -81,7 +81,7 @@ class MemoryCache(Cache):
                 result[key] = value
         return result
     
-    async def set_many(self, mapping: dict[str, Any], ttl: Optional[int] = None) -> None:
+    async def set_many(self, mapping: Dict[str, Any], ttl: Optional[int] = None) -> None:
         """Set multiple values"""
         for key, value in mapping.items():
             await self.set(key, value, ttl)

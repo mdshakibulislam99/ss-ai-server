@@ -3,7 +3,7 @@ Queue interface - Abstract base class for job queues
 """
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Generic, Optional, TypeVar
+from typing import Dict,  Generic, Optional, TypeVar
 
 from ..entities.queue_job import QueueJob
 

@@ -2,7 +2,7 @@
 Health Checker - Health check implementation
 """
 
-from typing import Dict, List, Optional
+from typing import Dict,  List, Optional
 
 from ...domain.interfaces.logger import Logger
 

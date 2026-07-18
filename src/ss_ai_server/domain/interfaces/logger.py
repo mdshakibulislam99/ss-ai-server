@@ -3,7 +3,6 @@ Logger interface - Abstract base class for logging
 """
 
 from abc import ABC, abstractmethod
-from typing import Any
 
 
 class Logger(ABC):

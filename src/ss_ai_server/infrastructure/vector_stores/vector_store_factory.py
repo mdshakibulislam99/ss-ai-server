@@ -4,7 +4,7 @@ Vector Store Factory
 Factory pattern implementation for creating vector store instances
 """
 
-from typing import Dict, Type
+from typing import Dict,  Type
 
 from ..domain.interfaces.vector_store import VectorStore
 from .base_vector_store import BaseVectorStore
