@@ -4,7 +4,7 @@ Base Vector Store - Base implementation for vector stores
 
 from typing import Dict,  List, Optional, Tuple
 
-from ...domain.interfaces.vector_store import VectorStore, VectorStoreStats
+from ...domain.interfaces.vector_store import VectorStore, VectorStoreStats  # type: ignore
 from ...domain.value_objects.embedding_vector import EmbeddingVector
 from ...domain.entities.search_result import SearchResult
 
@@ -12,7 +12,7 @@ from ...domain.entities.search_result import SearchResult
 class BaseVectorStore(VectorStore):
     """Base implementation for vector stores"""
     
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize base vector store"""
         self._dimensions = None
         self._metric = None

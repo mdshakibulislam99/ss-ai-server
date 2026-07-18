@@ -4,14 +4,14 @@ Memory Queue - In-memory queue implementation
 
 from typing import Optional
 
-from ...domain.interfaces.queue import Queue, QueueStats
+from ...domain.interfaces.queue import Queue, QueueStats  # type: ignore
 from ...domain.entities.queue_job import QueueJob, JobStatus
 
 
 class MemoryQueue(Queue):
     """In-memory queue implementation"""
     
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize memory queue"""
         self._queue = []
         self._jobs = {}

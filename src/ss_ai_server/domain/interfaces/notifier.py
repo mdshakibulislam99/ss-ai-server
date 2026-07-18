@@ -27,7 +27,7 @@ class Notifier(ABC):
         pass
     
     @abstractmethod
-    async def send_batch(self, notifications: list[Dict[str, Any]]) -> list[bool]:
+    async def send_batch(self, notifications: List[Dict[str, Any]]) -> List[bool]:
         """
         Send batch notifications
         

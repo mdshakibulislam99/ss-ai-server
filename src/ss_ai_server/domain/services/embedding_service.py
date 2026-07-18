@@ -4,15 +4,15 @@ EmbeddingService - Domain service for embedding operations
 
 from typing import Optional
 
-from ..interfaces.ai_provider import AIProvider
-from ..interfaces.cache import Cache
+from ..interfaces.ai_provider import AIProvider  # type: ignore
+from ..interfaces.cache import Cache  # type: ignore
 from ..value_objects.embedding_vector import EmbeddingVector
 
 
 class EmbeddingService:
     """Domain service for embedding operations"""
     
-    def __init__(self, ai_provider: AIProvider, cache: Optional[Cache] = None):
+    def __init__(self, ai_provider: AIProvider, cache: Optional[Cache] = None) -> None:
         """
         Initialize embedding service
         
@@ -49,8 +49,8 @@ class EmbeddingService:
         
         return embedding
     
-    async def generate_embeddings_batch(self, images_data: list[bytes], 
-                                        cache_keys: Optional[list[str]] = None) -> list[EmbeddingVector]:
+    async def generate_embeddings_batch(self, images_data: List[bytes], 
+                                        cache_keys: Optional[List[str]] = None) -> List[EmbeddingVector]:
         """
         Generate embeddings for multiple images
         

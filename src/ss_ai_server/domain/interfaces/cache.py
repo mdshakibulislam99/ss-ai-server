@@ -38,7 +38,7 @@ class Cache(ABC, Generic[K, V]):
         pass
     
     @abstractmethod
-    async def get_many(self, keys: list[K]) -> Dict[K, V]:
+    async def get_many(self, keys: List[K]) -> Dict[K, V]:
         """Get multiple values"""
         pass
     

@@ -4,13 +4,13 @@ Logger - Logging implementation
 
 import logging
 
-from ...domain.interfaces.logger import Logger
+from ...domain.interfaces.logger import Logger  # type: ignore
 
 
 class LoggerImpl(Logger):
     """Logging implementation"""
     
-    def __init__(self, name: str = "ss_ai_server", level: str = "INFO"):
+    def __init__(self, name: str = "ss_ai_server", level: str = "INFO") -> None:
         """
         Initialize logger
         

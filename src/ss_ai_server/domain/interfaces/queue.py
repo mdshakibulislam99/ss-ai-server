@@ -13,7 +13,7 @@ T = TypeVar("T", bound=QueueJob)
 class QueueStats:
     """Queue statistics"""
     
-    def __init__(self, pending: int, processing: int, completed: int, failed: int):
+    def __init__(self, pending: int, processing: int, completed: int, failed: int) -> None:
         self.pending = pending
         self.processing = processing
         self.completed = completed

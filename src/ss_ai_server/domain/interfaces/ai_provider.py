@@ -11,7 +11,7 @@ from ..value_objects.embedding_vector import EmbeddingVector
 class ModelInfo:
     """Model information"""
     
-    def __init__(self, name: str, provider: str, dimensions: int, version: Optional[str] = None):
+    def __init__(self, name: str, provider: str, dimensions: int, version: Optional[str] = None) -> None:
         self.name = name
         self.provider = provider
         self.dimensions = dimensions

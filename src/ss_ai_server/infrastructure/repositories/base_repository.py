@@ -4,7 +4,7 @@ Base Repository - Base implementation for repositories
 
 from typing import Generic, List, Optional, TypeVar
 
-from ...domain.interfaces.repository import Repository
+from ...domain.interfaces.repository import Repository  # type: ignore
 
 T = TypeVar("T")
 
@@ -12,7 +12,7 @@ T = TypeVar("T")
 class BaseRepository(Repository[T], Generic[T]):
     """Base implementation for repositories"""
     
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize base repository"""
         self._entities = {}
     

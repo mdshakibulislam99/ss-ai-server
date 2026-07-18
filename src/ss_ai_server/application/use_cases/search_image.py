@@ -4,7 +4,7 @@ SearchImageUseCase - Use case for searching similar images
 
 from typing import Optional
 
-from ..interfaces.use_case import UseCase
+from ..interfaces.use_case import UseCase  # type: ignore
 from ..dto.requests.search_request import SearchRequest
 from ..dto.responses.search_response import SearchResponse
 from ...domain.services.embedding_service import EmbeddingService
@@ -15,7 +15,7 @@ from ...domain.value_objects.embedding_vector import EmbeddingVector
 class SearchImageUseCase(UseCase):
     """Use case for searching similar images"""
     
-    def __init__(self, embedding_service: EmbeddingService, search_service: SearchService):
+    def __init__(self, embedding_service: EmbeddingService, search_service: SearchService) -> None:
         """
         Initialize search image use case
         

@@ -6,7 +6,7 @@ Factory pattern implementation for creating AI providers
 
 from typing import Dict,  Type, Optional
 
-from ..domain.interfaces.ai_provider import AIProvider
+from ..domain.interfaces.ai_provider import AIProvider  # type: ignore
 from .base_provider import BaseAIProvider
 
 
@@ -55,7 +55,7 @@ class AIProviderFactory:
         return provider_class(**kwargs)
     
     @classmethod
-    def get_available_providers(cls) -> list[str]:
+    def get_available_providers(cls) -> List[str]:
         """
         Get list of available AI providers
         

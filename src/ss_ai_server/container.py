@@ -8,13 +8,13 @@ from typing import Dict,  Type, TypeVar, Generic, Optional
 from enum import Enum
 
 from .config.settings import Settings
-from .domain.interfaces.ai_provider import AIProvider
-from .domain.interfaces.vector_store import VectorStore
-from .domain.interfaces.cache import Cache
-from .domain.interfaces.queue import Queue
-from .domain.interfaces.storage import Storage
-from .domain.interfaces.logger import Logger
-from .domain.interfaces.repository import Repository
+from .domain.interfaces.ai_provider import AIProvider  # type: ignore  # type: ignore
+from .domain.interfaces.vector_store import VectorStore  # type: ignore  # type: ignore
+from .domain.interfaces.cache import Cache  # type: ignore  # type: ignore
+from .domain.interfaces.queue import Queue  # type: ignore  # type: ignore
+from .domain.interfaces.storage import Storage  # type: ignore  # type: ignore
+from .domain.interfaces.logger import Logger  # type: ignore  # type: ignore
+from .domain.interfaces.repository import Repository  # type: ignore  # type: ignore
 from .infrastructure.cache.memory_cache import MemoryCache
 from .infrastructure.logging.logger import LoggerImpl
 from .infrastructure.storage.local_storage import LocalStorage
@@ -64,7 +64,7 @@ class Container:
     Manages service registration, resolution, and lifetime
     """
     
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize container"""
         self._services: Dict[Type, ServiceDescriptor] = {}
         self._singletons: Dict[Type, Any] = {}

@@ -8,7 +8,7 @@ from typing import Optional
 class SSException(Exception):
     """Base exception for all SS AI Server exceptions"""
     
-    def __init__(self, message: str, code: str, details: Optional[dict] = None):
+    def __init__(self, message: str, code: str, details: Optional[dict] = None) -> None:
         """
         Initialize exception
         
@@ -36,7 +36,7 @@ class SSException(Exception):
 class DomainException(SSException):
     """Base exception for domain-level errors"""
     
-    def __init__(self, message: str, code: str, details: Optional[dict] = None):
+    def __init__(self, message: str, code: str, details: Optional[dict] = None) -> None:
         """
         Initialize domain exception
         
@@ -51,7 +51,7 @@ class DomainException(SSException):
 class ValidationError(SSException):
     """Raised when validation fails"""
     
-    def __init__(self, message: str, field: Optional[str] = None, details: Optional[dict] = None):
+    def __init__(self, message: str, field: Optional[str] = None, details: Optional[dict] = None) -> None:
         """
         Initialize validation error
         
@@ -74,7 +74,7 @@ class ValidationError(SSException):
 class NotFoundError(SSException):
     """Raised when a resource is not found"""
     
-    def __init__(self, resource_type: str, resource_id: str, details: Optional[dict] = None):
+    def __init__(self, resource_type: str, resource_id: str, details: Optional[dict] = None) -> None:
         """
         Initialize not found error
         
@@ -101,7 +101,7 @@ class AuthorizationError(SSException):
     """Raised when authorization fails"""
     
     def __init__(self, message: str, required_permission: Optional[str] = None, 
-                 details: Optional[dict] = None):
+                 details: Optional[dict] = None) -> None:
         """
         Initialize authorization error
         
@@ -124,7 +124,7 @@ class AuthorizationError(SSException):
 class ApplicationException(SSException):
     """Base exception for application-level errors"""
     
-    def __init__(self, message: str, code: str, details: Optional[dict] = None):
+    def __init__(self, message: str, code: str, details: Optional[dict] = None) -> None:
         """
         Initialize application exception
         
@@ -139,7 +139,7 @@ class ApplicationException(SSException):
 class InfrastructureException(SSException):
     """Base exception for infrastructure-level errors"""
     
-    def __init__(self, message: str, code: str, details: Optional[dict] = None):
+    def __init__(self, message: str, code: str, details: Optional[dict] = None) -> None:
         """
         Initialize infrastructure exception
         

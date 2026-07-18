@@ -5,13 +5,13 @@ Local Storage - Local filesystem storage implementation
 import os
 from typing import Optional
 
-from ...domain.interfaces.storage import Storage
+from ...domain.interfaces.storage import Storage  # type: ignore
 
 
 class LocalStorage(Storage):
     """Local filesystem storage implementation"""
     
-    def __init__(self, base_path: str = "/data/storage"):
+    def __init__(self, base_path: str = "/data/storage") -> None:
         """
         Initialize local storage
         

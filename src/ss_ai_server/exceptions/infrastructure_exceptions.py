@@ -10,7 +10,7 @@ from .base_exceptions import InfrastructureException
 class ProviderError(InfrastructureException):
     """Raised when an AI provider encounters an error"""
     
-    def __init__(self, provider: str, operation: str, reason: str, details: Optional[dict] = None):
+    def __init__(self, provider: str, operation: str, reason: str, details: Optional[dict] = None) -> None:
         """
         Initialize provider error
         
@@ -38,7 +38,7 @@ class ProviderError(InfrastructureException):
 class VectorStoreError(InfrastructureException):
     """Raised when a vector store encounters an error"""
     
-    def __init__(self, store_type: str, operation: str, reason: str, details: Optional[dict] = None):
+    def __init__(self, store_type: str, operation: str, reason: str, details: Optional[dict] = None) -> None:
         """
         Initialize vector store error
         
@@ -66,7 +66,7 @@ class VectorStoreError(InfrastructureException):
 class DatabaseError(InfrastructureException):
     """Raised when a database operation fails"""
     
-    def __init__(self, operation: str, reason: str, details: Optional[dict] = None):
+    def __init__(self, operation: str, reason: str, details: Optional[dict] = None) -> None:
         """
         Initialize database error
         
@@ -92,7 +92,7 @@ class DatabaseError(InfrastructureException):
 class CacheError(InfrastructureException):
     """Raised when a cache operation fails"""
     
-    def __init__(self, operation: str, reason: str, details: Optional[dict] = None):
+    def __init__(self, operation: str, reason: str, details: Optional[dict] = None) -> None:
         """
         Initialize cache error
         
@@ -118,7 +118,7 @@ class CacheError(InfrastructureException):
 class QueueError(InfrastructureException):
     """Raised when a queue operation fails"""
     
-    def __init__(self, operation: str, reason: str, details: Optional[dict] = None):
+    def __init__(self, operation: str, reason: str, details: Optional[dict] = None) -> None:
         """
         Initialize queue error
         
@@ -144,7 +144,7 @@ class QueueError(InfrastructureException):
 class StorageError(InfrastructureException):
     """Raised when a storage operation fails"""
     
-    def __init__(self, operation: str, path: str, reason: str, details: Optional[dict] = None):
+    def __init__(self, operation: str, path: str, reason: str, details: Optional[dict] = None) -> None:
         """
         Initialize storage error
         

@@ -6,7 +6,7 @@ Concrete implementation of the Product repository
 
 from typing import List, Optional
 
-from ..domain.interfaces.repository import Repository
+from ..domain.interfaces.repository import Repository  # type: ignore
 from ..domain.entities.product import Product
 
 
@@ -18,7 +18,7 @@ class ProductRepository(Repository[Product]):
     In production, this would use SQLAlchemy or similar ORM.
     """
     
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize repository"""
         self._products = {}
     

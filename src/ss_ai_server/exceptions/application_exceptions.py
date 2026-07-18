@@ -10,7 +10,7 @@ from .base_exceptions import ApplicationException
 class UseCaseExecutionError(ApplicationException):
     """Raised when a use case fails to execute"""
     
-    def __init__(self, use_case: str, reason: str, details: Optional[dict] = None):
+    def __init__(self, use_case: str, reason: str, details: Optional[dict] = None) -> None:
         """
         Initialize use case execution error
         
@@ -37,7 +37,7 @@ class InvalidRequestError(ApplicationException):
     """Raised when a request is invalid"""
     
     def __init__(self, message: str, request_data: Optional[dict] = None, 
-                 details: Optional[dict] = None):
+                 details: Optional[dict] = None) -> None:
         """
         Initialize invalid request error
         
@@ -60,7 +60,7 @@ class InvalidRequestError(ApplicationException):
 class OperationNotAllowedError(ApplicationException):
     """Raised when an operation is not allowed"""
     
-    def __init__(self, operation: str, reason: str, details: Optional[dict] = None):
+    def __init__(self, operation: str, reason: str, details: Optional[dict] = None) -> None:
         """
         Initialize operation not allowed error
         

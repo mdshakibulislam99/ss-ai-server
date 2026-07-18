@@ -11,7 +11,7 @@ from ...config.settings import settings
 class DatabaseManager:
     """Database connection and session management"""
     
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize database manager"""
         self._engine = None
         self._session_factory = None

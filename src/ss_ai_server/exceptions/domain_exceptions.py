@@ -10,7 +10,7 @@ from .base_exceptions import DomainException
 class EntityNotFoundError(DomainException):
     """Raised when a domain entity is not found"""
     
-    def __init__(self, entity_type: str, entity_id: str, details: Optional[dict] = None):
+    def __init__(self, entity_type: str, entity_id: str, details: Optional[dict] = None) -> None:
         """
         Initialize entity not found error
         
@@ -36,7 +36,7 @@ class EntityNotFoundError(DomainException):
 class BusinessRuleViolationError(DomainException):
     """Raised when a business rule is violated"""
     
-    def __init__(self, rule: str, message: str, details: Optional[dict] = None):
+    def __init__(self, rule: str, message: str, details: Optional[dict] = None) -> None:
         """
         Initialize business rule violation error
         
@@ -58,7 +58,7 @@ class BusinessRuleViolationError(DomainException):
 class InvalidEmbeddingError(DomainException):
     """Raised when an embedding is invalid"""
     
-    def __init__(self, reason: str, details: Optional[dict] = None):
+    def __init__(self, reason: str, details: Optional[dict] = None) -> None:
         """
         Initialize invalid embedding error
         
@@ -80,7 +80,7 @@ class InvalidEmbeddingError(DomainException):
 class ModelNotLoadedError(DomainException):
     """Raised when an AI model is not loaded"""
     
-    def __init__(self, model_name: str, provider: str, details: Optional[dict] = None):
+    def __init__(self, model_name: str, provider: str, details: Optional[dict] = None) -> None:
         """
         Initialize model not loaded error
         

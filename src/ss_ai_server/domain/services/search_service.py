@@ -4,8 +4,8 @@ SearchService - Domain service for search operations
 
 from typing import Optional
 
-from ..interfaces.vector_store import VectorStore
-from ..interfaces.cache import Cache
+from ..interfaces.vector_store import VectorStore  # type: ignore
+from ..interfaces.cache import Cache  # type: ignore
 from ..value_objects.embedding_vector import EmbeddingVector
 from ..entities.search_result import SearchResult
 
@@ -13,7 +13,7 @@ from ..entities.search_result import SearchResult
 class SearchService:
     """Domain service for search operations"""
     
-    def __init__(self, vector_store: VectorStore, cache: Optional[Cache] = None):
+    def __init__(self, vector_store: VectorStore, cache: Optional[Cache] = None) -> None:
         """
         Initialize search service
         
@@ -25,7 +25,7 @@ class SearchService:
         self.cache = cache
     
     async def search_similar(self, query_embedding: EmbeddingVector, limit: int = 20,
-                            threshold: float = 0.7, cache_key: Optional[str] = None) -> list[SearchResult]:
+                            threshold: float = 0.7, cache_key: Optional[str] = None) -> List[SearchResult]:
         """
         Search for similar vectors
         

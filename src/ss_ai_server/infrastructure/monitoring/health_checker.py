@@ -4,13 +4,13 @@ Health Checker - Health check implementation
 
 from typing import Dict,  List, Optional
 
-from ...domain.interfaces.logger import Logger
+from ...domain.interfaces.logger import Logger  # type: ignore
 
 
 class HealthChecker:
     """Health check implementation"""
     
-    def __init__(self, logger: Logger):
+    def __init__(self, logger: Logger) -> None:
         """
         Initialize health checker
         

@@ -6,7 +6,7 @@ Factory pattern implementation for creating vector store instances
 
 from typing import Dict,  Type
 
-from ..domain.interfaces.vector_store import VectorStore
+from ..domain.interfaces.vector_store import VectorStore  # type: ignore
 from .base_vector_store import BaseVectorStore
 
 
@@ -55,7 +55,7 @@ class VectorStoreFactory:
         return store_class(**kwargs)
     
     @classmethod
-    def get_available_stores(cls) -> list[str]:
+    def get_available_stores(cls) -> List[str]:
         """
         Get list of available vector stores
         

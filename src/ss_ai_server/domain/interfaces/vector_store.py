@@ -12,7 +12,7 @@ from ..entities.search_result import SearchResult
 class VectorStoreStats:
     """Vector store statistics"""
     
-    def __init__(self, total_vectors: int, dimensions: int, index_size: int):
+    def __init__(self, total_vectors: int, dimensions: int, index_size: int) -> None:
         self.total_vectors = total_vectors
         self.dimensions = dimensions
         self.index_size = index_size
