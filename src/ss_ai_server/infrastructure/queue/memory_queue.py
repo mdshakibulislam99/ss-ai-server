@@ -4,8 +4,8 @@ Memory Queue - In-memory queue implementation
 
 from typing import Optional
 
-from ...domain.interfaces.queue import Queue, QueueStats  # type: ignore
-from ...domain.entities.queue_job import QueueJob, JobStatus  # type: ignore
+from ...domain.interfaces.queue import Queue, QueueStats  # noqa: F401
+from ...domain.entities.queue_job import QueueJob, JobStatus  # noqa: F401
 
 
 class MemoryQueue(Queue):

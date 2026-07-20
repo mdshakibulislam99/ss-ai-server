@@ -5,8 +5,8 @@ Vector Store interface - Abstract base class for vector databases
 from abc import ABC, abstractmethod
 from typing import Any,  Dict,  List, Optional, Tuple
 
-from ..value_objects.embedding_vector import EmbeddingVector  # type: ignore
-from ..entities.search_result import SearchResult  # type: ignore
+from ..value_objects.embedding_vector import EmbeddingVector  # noqa: F401
+from ..entities.search_result import SearchResult  # noqa: F401
 
 
 class VectorStoreStats:

@@ -5,7 +5,7 @@ Local Storage - Local filesystem storage implementation
 import os
 from typing import Optional
 
-from ...domain.interfaces.storage import Storage  # type: ignore
+from ...domain.interfaces.storage import Storage  # noqa: F401
 
 
 class LocalStorage(Storage):

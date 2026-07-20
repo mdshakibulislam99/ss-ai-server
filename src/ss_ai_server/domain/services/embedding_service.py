@@ -4,9 +4,9 @@ EmbeddingService - Domain service for embedding operations
 
 from typing import Optional
 
-from ..interfaces.ai_provider import AIProvider  # type: ignore
-from ..interfaces.cache import Cache  # type: ignore
-from ..value_objects.embedding_vector import EmbeddingVector  # type: ignore
+from ..interfaces.ai_provider import AIProvider  # noqa: F401
+from ..interfaces.cache import Cache  # noqa: F401
+from ..value_objects.embedding_vector import EmbeddingVector  # noqa: F401
 
 
 class EmbeddingService:

@@ -4,7 +4,7 @@ Base Repository - Base implementation for repositories
 
 from typing import Generic, List, Optional, TypeVar
 
-from ...domain.interfaces.repository import Repository  # type: ignore
+from ...domain.interfaces.repository import Repository  # noqa: F401
 
 T = TypeVar("T")
 

@@ -5,7 +5,7 @@ Queue interface - Abstract base class for job queues
 from abc import ABC, abstractmethod
 from typing import Any,  Dict,  Generic, Optional, TypeVar
 
-from ..entities.queue_job import QueueJob  # type: ignore
+from ..entities.queue_job import QueueJob  # noqa: F401
 
 T = TypeVar("T", bound=QueueJob)
 

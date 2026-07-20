@@ -8,13 +8,13 @@ from typing import Any,  Dict,  Type, TypeVar, Generic, Optional
 from enum import Enum
 
 from .config.settings import Settings
-from .domain.interfaces.ai_provider import AIProvider  # type: ignore  # type: ignore
-from .domain.interfaces.vector_store import VectorStore  # type: ignore  # type: ignore
-from .domain.interfaces.cache import Cache  # type: ignore  # type: ignore
-from .domain.interfaces.queue import Queue  # type: ignore  # type: ignore
-from .domain.interfaces.storage import Storage  # type: ignore  # type: ignore
-from .domain.interfaces.logger import Logger  # type: ignore  # type: ignore
-from .domain.interfaces.repository import Repository  # type: ignore  # type: ignore
+from .domain.interfaces.ai_provider import AIProvider  # noqa: F401
+from .domain.interfaces.vector_store import VectorStore  # noqa: F401
+from .domain.interfaces.cache import Cache  # noqa: F401
+from .domain.interfaces.queue import Queue  # noqa: F401
+from .domain.interfaces.storage import Storage  # noqa: F401
+from .domain.interfaces.logger import Logger  # noqa: F401
+from .domain.interfaces.repository import Repository  # noqa: F401
 from .infrastructure.cache.memory_cache import MemoryCache
 from .infrastructure.logging.logger import LoggerImpl
 from .infrastructure.storage.local_storage import LocalStorage

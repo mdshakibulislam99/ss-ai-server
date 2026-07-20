@@ -4,7 +4,7 @@ Logger - Logging implementation
 
 import logging
 
-from ...domain.interfaces.logger import Logger  # type: ignore
+from ...domain.interfaces.logger import Logger  # noqa: F401
 
 
 class LoggerImpl(Logger):

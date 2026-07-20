@@ -6,8 +6,8 @@ Concrete implementation of the Product repository
 
 from typing import List, Optional
 
-from ..domain.interfaces.repository import Repository  # type: ignore
-from ..domain.entities.product import Product  # type: ignore
+from ..domain.interfaces.repository import Repository  # noqa: F401
+from ..domain.entities.product import Product  # noqa: F401
 
 
 class ProductRepository(Repository[Product]):

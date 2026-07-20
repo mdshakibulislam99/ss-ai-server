@@ -45,10 +45,10 @@ class DatabaseManager:
     
     async def create_tables(self) -> None:
         """Create all tables"""
-        from ...domain.entities.product import Product  # type: ignore
-        from ...domain.entities.embedding import Embedding  # type: ignore
-        from ...domain.entities.api_key import ApiKey  # type: ignore
-        from ...domain.entities.queue_job import QueueJob  # type: ignore
+        from ...domain.entities.product import Product  # noqa: F401
+        from ...domain.entities.embedding import Embedding  # noqa: F401
+        from ...domain.entities.api_key import ApiKey  # noqa: F401
+        from ...domain.entities.queue_job import QueueJob  # noqa: F401
         from sqlalchemy import Column, String, DateTime, Float, Integer, Boolean, Text, JSON
         from sqlalchemy.ext.declarative import declarative_base
         

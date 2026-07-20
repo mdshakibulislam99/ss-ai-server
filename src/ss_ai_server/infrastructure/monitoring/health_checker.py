@@ -4,7 +4,7 @@ Health Checker - Health check implementation
 
 from typing import Dict,  List, Optional
 
-from ...domain.interfaces.logger import Logger  # type: ignore
+from ...domain.interfaces.logger import Logger  # noqa: F401
 
 
 class HealthChecker:

@@ -4,8 +4,8 @@ Base AI Provider - Base implementation for AI providers
 
 from typing import List, Optional
 
-from ...domain.interfaces.ai_provider import AIProvider, ModelInfo  # type: ignore
-from ...domain.value_objects.embedding_vector import EmbeddingVector  # type: ignore
+from ...domain.interfaces.ai_provider import AIProvider, ModelInfo  # noqa: F401
+from ...domain.value_objects.embedding_vector import EmbeddingVector  # noqa: F401
 
 
 class BaseAIProvider(AIProvider):
