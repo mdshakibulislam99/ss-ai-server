@@ -84,8 +84,7 @@ class SearchService:
             if cached is not None:
                 elapsed = (time.perf_counter() - start) * 1000
                 self._log_debug(f"Search cache hit for {cache_key}")
-                results, cached_embedding = cached
-                return results, cached_embedding, elapsed
+                return cached, elapsed
         
         # Step 3: Generate embedding via AIProvider
         try:

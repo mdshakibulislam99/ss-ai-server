@@ -1,0 +1,52 @@
+"""
+SearchResponse - Response DTO for image search
+"""
+
+from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional
+
+from ...domain.entities.search_result import SearchResult
+from ...domain.value_objects.embedding_vector import EmbeddingVector
+
+
+@dataclass
+class SearchResponse:
+    """Search response DTO"""
+    
+    success: bool
+    results: List[SearchResult]
+    query_embedding: Optional[EmbeddingVector] = None
+    total_count: int = 0
+    message: Optional[str] = None
+    metadata: Optional[Dict[str, Any]] = None
+    processing_time_ms: float = 0.0
+    
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert to dictionary"""
+        return {
+            "success": self.success,
+            "results": [r.to_dict() for r in self.results],
+            "total_count": self.total_count,
+            "message": self.message,
+            "processing_time_ms": self.processing_time_ms,
+            "metadata": self.metadata,
+        }
+
+
+@dataclass
+class SearchResultItem:
+    """Single search result item for API response"""
+    
+    product_id: str
+    similarity_score: float
+    confidence_percentage: float
+    metadata: Dict[str, Any]
+    
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert to dictionary"""
+        return {
+            "product_id": self.product_id,
+            "similarity_score": round(self.similarity_score, 4),
+            "confidence_percentage": round(self.confidence_percentage, 2),
+            "metadata": self.metadata,
+        }
