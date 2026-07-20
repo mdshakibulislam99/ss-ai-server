@@ -160,6 +160,27 @@ def create_application() -> FastAPI:
         )
         logger.info("CORS middleware configured", origins=settings.cors_origins)
     
+    # Add rate limiting middleware
+    if settings.rate_limit_enabled:
+        from .presentation.middleware.rate_limit_middleware import RateLimitMiddleware
+        cache = container.resolve(Cache)
+        app.add_middleware(
+            RateLimitMiddleware,
+            settings=settings,
+            cache=cache,
+        )
+        logger.info("Rate limiting middleware configured")
+    
+    # Add authentication middleware
+    from .presentation.middleware.auth_middleware import APIKeyAuthMiddleware
+    cache = container.resolve(Cache)
+    app.add_middleware(
+        APIKeyAuthMiddleware,
+        settings=settings,
+        cache=cache,
+    )
+    logger.info("Authentication middleware configured")
+    
     # Register routers
     app.include_router(health_router, prefix="/api/v1/health", tags=["health"])
     app.include_router(search_router, prefix="/api/v1/search", tags=["search"])
