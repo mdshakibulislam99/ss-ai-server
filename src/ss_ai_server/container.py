@@ -232,14 +232,47 @@ def configure_services(settings: Settings) -> None:
         lifetime=ServiceLifetime.TRANSIENT
     )
     
-    # Register repositories (transient)
+    # Register repositories
+    from .infrastructure.repositories.product_repository import ProductRepository
+    
     container.register(
         Repository,
-        lifetime=ServiceLifetime.TRANSIENT
+        implementation_type=ProductRepository,
+        lifetime=ServiceLifetime.SINGLETON
     )
     
     # Register queues (transient)
     container.register(
         Queue,
+        lifetime=ServiceLifetime.TRANSIENT
+    )
+    
+    # Register domain services
+    from .domain.services.indexing_service import IndexingService
+    from .domain.services.embedding_service import EmbeddingService
+    
+    container.register(
+        IndexingService,
+        lifetime=ServiceLifetime.TRANSIENT
+    )
+    container.register(
+        EmbeddingService,
+        lifetime=ServiceLifetime.TRANSIENT
+    )
+    
+    # Register use cases
+    from .application.use_cases.index_product import IndexProductUseCase, BatchIndexUseCase
+    from .application.use_cases.search_image import SearchImageUseCase
+    
+    container.register(
+        IndexProductUseCase,
+        lifetime=ServiceLifetime.TRANSIENT
+    )
+    container.register(
+        BatchIndexUseCase,
+        lifetime=ServiceLifetime.TRANSIENT
+    )
+    container.register(
+        SearchImageUseCase,
         lifetime=ServiceLifetime.TRANSIENT
     )
