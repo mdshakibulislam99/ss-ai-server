@@ -53,14 +53,3 @@ class BatchIndexRequest:
             raise ValueError("At least one product is required for batch indexing")
         if len(self.products) > 100:
             raise ValueError("Batch size cannot exceed 100 products")
-</｜｜DSML｜｜parameter>
-<｜｜DSML｜｜parameter name="task_progress" string="true">- [x] Read existing architecture files
-- [ ] Create IndexRequest/IndexResponse DTOs
-- [ ] Create IndexProductUseCase
-- [ ] Create IndexingService in domain services
-- [ ] Update ProductRepository
-- [ ] Update API route (v1/index.py)
-- [ ] Wire dependencies in container.py
-- [ ] Commit and push</｜｜DSML｜｜parameter>
-</｜｜DSML｜｜invoke>
-</｜｜DSML｜｜tool_calls>

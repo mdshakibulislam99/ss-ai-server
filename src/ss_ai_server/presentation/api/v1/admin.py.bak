@@ -5,10 +5,10 @@ Admin API endpoints
 from typing import Any, Dict
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from ....domain.interfaces.vector_store import VectorStore
-from ....domain.interfaces.repository import Repository
-from ....domain.interfaces.cache import Cache
-from ....domain.entities.product import Product
+from ...domain.interfaces.vector_store import VectorStore
+from ...domain.interfaces.repository import Repository
+from ...domain.interfaces.cache import Cache
+from ...domain.entities.product import Product
 from ...container import container
 
 router = APIRouter()
@@ -156,7 +156,7 @@ async def restore_vector_store(vector_store: VectorStore = Depends(get_vector_st
 @router.get("/models", summary="Get available AI models")
 async def get_models():
     """Get list of available AI models"""
-    from ....infrastructure.ai.provider_factory import AIProviderFactory
+    from ...infrastructure.ai.provider_factory import AIProviderFactory
     
     try:
         models = AIProviderFactory.get_available_models()

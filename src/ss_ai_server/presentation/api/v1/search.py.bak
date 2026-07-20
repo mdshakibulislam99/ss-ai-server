@@ -8,9 +8,9 @@ from typing import List, Optional
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
 from pydantic import BaseModel, Field, validator
 
-from ....application.use_cases.search_image import SearchImageUseCase
-from ....application.dto.requests.search_request import SearchRequest
-from ....application.dto.responses.search_response import SearchResponse, SearchResultItem
+from ...application.use_cases.search_image import SearchImageUseCase
+from ...application.dto.requests.search_request import SearchRequest
+from ...application.dto.responses.search_response import SearchResponse, SearchResultItem
 
 router = APIRouter()
 

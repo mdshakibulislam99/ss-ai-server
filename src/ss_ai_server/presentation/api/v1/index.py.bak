@@ -8,10 +8,10 @@ from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field, validator
 
-from ....application.use_cases.index_product import IndexProductUseCase, BatchIndexUseCase
-from ....application.dto.requests.index_request import IndexRequest, BatchIndexRequest
-from ....application.dto.responses.index_response import IndexResponse, BatchIndexResponse
-from ....domain.interfaces.vector_store import VectorStore
+from ...application.use_cases.index_product import IndexProductUseCase, BatchIndexUseCase
+from ...application.dto.requests.index_request import IndexRequest, BatchIndexRequest
+from ...application.dto.responses.index_response import IndexResponse, BatchIndexResponse
+from ...domain.interfaces.vector_store import VectorStore
 
 router = APIRouter()
 
