@@ -1,0 +1,60 @@
+services:
+  - type: web
+    name: ss-ai-server
+    runtime: python
+    plan: starter
+    buildCommand: pip install -e ".[dev]"
+    startCommand: uvicorn ss_ai_server.main:app --host 0.0.0.0 --port $PORT --workers 2
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: false
+      - key: LOG_LEVEL
+        value: INFO
+      - key: LOG_FORMAT
+        value: json
+      - key: WORKERS
+        value: 2
+      - key: DATABASE_TYPE
+        value: sqlite
+      - key: DATABASE_NAME
+        value: ss_ai_server
+      - key: VECTOR_STORE_TYPE
+        value: faiss
+      - key: VECTOR_STORE_PATH
+        value: /data/vector_store
+      - key: AI_DEFAULT_PROVIDER
+        value: openclip
+      - key: AI_DEFAULT_MODEL
+        value: ViT-B-32
+      - key: AI_DEVICE
+        value: cpu
+      - key: AI_PRECISION
+        value: fp32
+      - key: AI_CACHE_DIR
+        value: /models
+      - key: STORAGE_TYPE
+        value: local
+      - key: STORAGE_PATH
+        value: /data/storage
+      - key: QUEUE_TYPE
+        value: memory
+      - key: CORS_ENABLED
+        value: true
+      - key: CORS_ORIGINS
+        value: '["*"]'
+      - key: RATE_LIMIT_ENABLED
+        value: true
+      - key: SECRET_KEY
+        generateValue: true
+      - key: API_KEY_HASH_ALGORITHM
+        value: SHA256
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 10
+    healthCheckPath: /api/v1/health
+    autoDeploy: true
