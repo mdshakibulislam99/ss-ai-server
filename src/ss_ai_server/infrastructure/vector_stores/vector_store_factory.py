@@ -38,6 +38,8 @@ class VectorStoreFactory:
         Args:
             store_name: Name of the vector store to create
             **kwargs: Additional arguments for store initialization
+                - dimensions: Vector dimensions (will call initialize if provided)
+                - metric: Distance metric (will call initialize if provided with dimensions)
             
         Returns:
             Vector store instance
@@ -52,7 +54,19 @@ class VectorStoreFactory:
             )
         
         store_class = cls._stores[store_name]
-        return store_class(**kwargs)
+        
+        # Extract initialization parameters
+        dimensions = kwargs.pop('dimensions', None)
+        metric = kwargs.pop('metric', 'cosine')
+        
+        # Create store instance
+        store = store_class(**kwargs)
+        
+        # Initialize if dimensions provided
+        if dimensions is not None:
+            store.initialize(dimensions=dimensions, metric=metric)
+        
+        return store
     
     @classmethod
     def get_available_stores(cls) -> List[str]:

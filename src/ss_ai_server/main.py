@@ -63,10 +63,9 @@ async def lifespan(app: FastAPI):
         configure_services(settings)
         logger.info("Dependency injection container configured")
         
-        # Initialize vector store
+        # Initialize vector store (already initialized by factory)
         from .domain.interfaces.vector_store import VectorStore
         vector_store = container.resolve(VectorStore)
-        vector_store.initialize(settings.vector_store_dimensions, settings.vector_store_metric)
         logger.info("Vector store initialized", dimensions=settings.vector_store_dimensions)
         
         # Initialize AI provider

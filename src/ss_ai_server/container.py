@@ -223,7 +223,12 @@ def configure_services(settings: Settings) -> None:
     from .infrastructure.vector_stores.vector_store_factory import VectorStoreFactory
     container.register(
         VectorStore,
-        factory=lambda c: VectorStoreFactory.create_vector_store(settings),
+        factory=lambda c: VectorStoreFactory.create_store(
+            settings.vector_store_type,
+            dimensions=settings.vector_store_dimensions,
+            metric=settings.vector_store_metric,
+            path=settings.vector_store_path
+        ),
         lifetime=ServiceLifetime.SINGLETON
     )
     
