@@ -3,8 +3,8 @@ services:
     name: ss-ai-server
     runtime: python
     plan: starter
-    buildCommand: pip install --force-reinstall --no-cache-dir -e .
-    startCommand: uvicorn ss_ai_server.main:app --host 0.0.0.0 --port $PORT --workers 1
+    buildCommand: pip install --no-cache-dir -e .
+    startCommand: uvicorn ss_ai_server.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: ENVIRONMENT
         value: production
@@ -19,7 +19,7 @@ services:
       - key: AI_DEVICE
         value: cpu
       - key: CORS_ENABLED
-        value: true
+        value: "true"
       - key: CORS_ORIGINS
         value: '["*"]'
       - key: SECRET_KEY
@@ -28,12 +28,5 @@ services:
       name: data
       mountPath: /data
       sizeGB: 1
-    healthCheckPath: /api/v1/health
+    healthCheckPath: /api/v1/health/
     autoDeploy: true
-    
-    # Force rebuild to clear cache
-    buildFilter:
-      paths:
-        - src/ss_ai_server/main.py
-        - src/ss_ai_server/container.py
-        - src/ss_ai_server/infrastructure/vector_stores/vector_store_factory.py
