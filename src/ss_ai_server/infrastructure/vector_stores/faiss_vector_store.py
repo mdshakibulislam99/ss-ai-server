@@ -308,7 +308,7 @@ class FAISSVectorStore(BaseVectorStore):
                 
                 result = SearchResult(
                     product_id=product_id,
-                    similarity=similarity,
+                    similarity_score=similarity,
                     metadata=self._metadata.get(product_id, {})
                 )
                 results.append(result)
