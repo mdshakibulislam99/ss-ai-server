@@ -6,7 +6,7 @@ Factory pattern implementation for creating AI providers
 
 from typing import Any, Dict, List, Type, Optional
 
-from ..domain.interfaces.ai_provider import AIProvider  # noqa: F401
+from ...domain.interfaces.ai_provider import AIProvider  # noqa: F401
 from .base_provider import BaseAIProvider
 
 
