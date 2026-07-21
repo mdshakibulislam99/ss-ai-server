@@ -237,10 +237,13 @@ def run():
     """Run the application with uvicorn"""
     import uvicorn
     
+    # Use PORT environment variable from Render.com, or fall back to settings
+    port = int(os.environ.get("PORT", settings.port))
+    
     uvicorn.run(
         "ss_ai_server.main:app",
         host=settings.host,
-        port=settings.port,
+        port=port,
         workers=settings.workers,
         log_level=settings.log_level.lower(),
         reload=settings.is_development,
