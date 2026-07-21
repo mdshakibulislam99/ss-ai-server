@@ -33,6 +33,7 @@ class SearchResponse:
     results: List[SearchResultItem]
     query_embedding: Optional[Any] = None
     total_count: int = 0
+    processing_time_ms: float = 0.0
     message: Optional[str] = None
     metadata: Optional[Dict[str, Any]] = None
     
@@ -42,6 +43,7 @@ class SearchResponse:
             "success": self.success,
             "results": [r.to_dict() for r in self.results],
             "total_count": self.total_count,
+            "processing_time_ms": self.processing_time_ms,
             "message": self.message,
             "metadata": self.metadata,
         }
