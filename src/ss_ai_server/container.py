@@ -227,7 +227,7 @@ def configure_services(settings: Settings) -> None:
             settings.vector_store_type,
             dimensions=settings.vector_store_dimensions,
             metric=settings.vector_store_metric,
-            path=settings.vector_store_path
+            index_path=settings.vector_store_path
         ),
         lifetime=ServiceLifetime.SINGLETON
     )
