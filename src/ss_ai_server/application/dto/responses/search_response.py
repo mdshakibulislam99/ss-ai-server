@@ -5,8 +5,8 @@ SearchResponse - Response DTO for image search
 from dataclasses import dataclass
 from typing import Any,  Dict,  List, Optional
 
-from ...domain.entities.search_result import SearchResult  # noqa: F401
-from ...domain.value_objects.embedding_vector import EmbeddingVector  # noqa: F401
+from ss_ai_server.domain.entities.search_result import SearchResult  # noqa: F401
+from ss_ai_server.domain.value_objects.embedding_vector import EmbeddingVector  # noqa: F401
 
 
 @dataclass

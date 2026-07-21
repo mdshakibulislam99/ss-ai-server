@@ -8,8 +8,8 @@ from typing import List, Optional
 from ..interfaces.use_case import UseCase
 from ..dto.requests.index_request import IndexRequest, BatchIndexRequest
 from ..dto.responses.index_response import IndexResponse, BatchIndexResponse
-from ...domain.services.indexing_service import IndexingService
-from ...domain.interfaces.logger import Logger
+from ss_ai_server.domain.services.indexing_service import IndexingService
+from ss_ai_server.domain.interfaces.logger import Logger
 
 
 class IndexProductUseCase(UseCase[IndexRequest, IndexResponse]):

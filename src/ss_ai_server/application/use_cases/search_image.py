@@ -8,8 +8,8 @@ from typing import List, Optional
 from ..interfaces.use_case import UseCase
 from ..dto.requests.search_request import SearchRequest
 from ..dto.responses.search_response import SearchResponse, SearchResultItem
-from ...domain.services.search_service import SearchService
-from ...domain.interfaces.logger import Logger
+from ss_ai_server.domain.services.search_service import SearchService
+from ss_ai_server.domain.interfaces.logger import Logger
 
 
 class SearchImageUseCase(UseCase[SearchRequest, SearchResponse]):
