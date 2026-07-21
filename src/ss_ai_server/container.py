@@ -219,6 +219,14 @@ def configure_services(settings: Settings) -> None:
         lifetime=ServiceLifetime.SINGLETON
     )
     
+    # Register vector store as singleton
+    from .infrastructure.vector_stores.vector_store_factory import VectorStoreFactory
+    container.register(
+        VectorStore,
+        factory=lambda c: VectorStoreFactory.create_vector_store(settings),
+        lifetime=ServiceLifetime.SINGLETON
+    )
+    
     # Register repositories
     from .infrastructure.repositories.product_repository import ProductRepository
     
