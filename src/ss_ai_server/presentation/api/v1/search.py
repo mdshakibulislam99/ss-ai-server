@@ -5,7 +5,7 @@ Search API endpoints for similar image search
 import time
 from typing import List, Optional
 
-from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
+from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, Query, status
 from pydantic import BaseModel, Field, validator
 
 from ss_ai_server.application.use_cases.search_image import SearchImageUseCase
@@ -60,8 +60,8 @@ def get_search_use_case() -> SearchImageUseCase:
 )
 async def search_by_image(
     file: UploadFile = File(..., description="Image file to search (JPG, PNG, WEBP)"),
-    limit: int = Field(default=20, ge=1, le=100, description="Maximum number of results"),
-    threshold: float = Field(default=0.7, ge=0.0, le=1.0, description="Minimum similarity threshold"),
+    limit: int = Query(default=20, ge=1, le=100, description="Maximum number of results"),
+    threshold: float = Query(default=0.7, ge=0.0, le=1.0, description="Minimum similarity threshold"),
     use_case: SearchImageUseCase = Depends(get_search_use_case),
 ) -> SearchImageResponse:
     """
