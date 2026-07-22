@@ -1,10 +1,8 @@
 services:
   - type: web
     name: ss-ai-server
-    runtime: python
+    runtime: docker
     plan: starter
-    buildCommand: pip install --no-cache-dir -e .
-    startCommand: uvicorn ss_ai_server.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: ENVIRONMENT
         value: production
@@ -22,11 +20,13 @@ services:
         value: "true"
       - key: CORS_ORIGINS
         value: '["*"]'
+      - key: WORKERS
+        value: "1"
       - key: SECRET_KEY
         generateValue: true
     disk:
       name: data
       mountPath: /data
-      sizeGB: 1
+      sizeGB: 4
     healthCheckPath: /api/v1/health/
     autoDeploy: true
