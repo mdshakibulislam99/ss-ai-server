@@ -102,25 +102,6 @@ async def lifespan(app: FastAPI):
         )
         logger.info("Search service initialized")
         
-        # Add rate limiting middleware
-        if settings.rate_limit_enabled:
-            from .presentation.middleware.rate_limit_middleware import RateLimitMiddleware
-            app.add_middleware(
-                RateLimitMiddleware,
-                settings=settings,
-                cache=cache,
-            )
-            logger.info("Rate limiting middleware configured")
-        
-        # Add authentication middleware
-        from .presentation.middleware.auth_middleware import APIKeyAuthMiddleware
-        app.add_middleware(
-            APIKeyAuthMiddleware,
-            settings=settings,
-            cache=cache,
-        )
-        logger.info("Authentication middleware configured")
-        
         # Store initialized services in app state
         app.state.vector_store = vector_store
         app.state.ai_provider = ai_provider
@@ -158,6 +139,11 @@ def create_application() -> FastAPI:
     Returns:
         Configured FastAPI application instance
     """
+    # Configure services and middleware before the application starts
+    configure_services(settings)
+    from .domain.interfaces.cache import Cache
+    cache = container.resolve(Cache)
+
     app = FastAPI(
         title=settings.app_name,
         version=settings.app_version,
@@ -178,9 +164,24 @@ def create_application() -> FastAPI:
             allow_headers=["*"],
         )
         logger.info("CORS middleware configured", origins=settings.cors_origins)
-    
-    # Note: Rate limiting and authentication middleware will be added in lifespan
-    # after the container is configured
+
+    # Configure application middleware before startup
+    if settings.rate_limit_enabled:
+        from .presentation.middleware.rate_limit_middleware import RateLimitMiddleware
+        app.add_middleware(
+            RateLimitMiddleware,
+            settings=settings,
+            cache=cache,
+        )
+        logger.info("Rate limiting middleware configured")
+
+    from .presentation.middleware.auth_middleware import APIKeyAuthMiddleware
+    app.add_middleware(
+        APIKeyAuthMiddleware,
+        settings=settings,
+        cache=cache,
+    )
+    logger.info("Authentication middleware configured")
     
     # Register routers
     app.include_router(health_router, prefix="/api/v1/health", tags=["health"])

@@ -4,7 +4,7 @@ Vector Store Factory
 Factory pattern implementation for creating vector store instances
 """
 
-from typing import Dict,  Type
+from typing import Dict, List, Type
 
 from ss_ai_server.domain.interfaces.vector_store import VectorStore  # noqa: F401
 from .base_vector_store import BaseVectorStore

@@ -2,7 +2,7 @@
 EmbeddingService - Domain service for embedding operations
 """
 
-from typing import Optional
+from typing import List, Optional
 
 from ..interfaces.ai_provider import AIProvider  # noqa: F401
 from ..interfaces.cache import Cache  # noqa: F401
