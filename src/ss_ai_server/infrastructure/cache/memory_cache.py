@@ -2,7 +2,7 @@
 Memory Cache - In-memory cache implementation
 """
 
-from typing import Any,  Dict,  Optional
+from typing import Any, Dict, List, Optional
 
 from ...domain.interfaces.cache import Cache  # noqa: F401
 

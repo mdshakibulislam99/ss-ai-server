@@ -3,6 +3,7 @@ Logger - Logging implementation
 """
 
 import logging
+from typing import Any
 
 from ...domain.interfaces.logger import Logger  # noqa: F401
 

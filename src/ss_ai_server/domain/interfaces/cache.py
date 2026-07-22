@@ -3,7 +3,7 @@ Cache interface - Abstract base class for caching
 """
 
 from abc import ABC, abstractmethod
-from typing import Dict,  Generic, Optional, TypeVar
+from typing import Dict, Generic, List, Optional, TypeVar
 
 K = TypeVar("K")
 V = TypeVar("V")
