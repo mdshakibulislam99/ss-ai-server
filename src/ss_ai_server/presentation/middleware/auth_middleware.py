@@ -118,7 +118,7 @@ class APIKeyAuthMiddleware(BaseHTTPMiddleware):
         
         # Validate against configured API keys
         # In production, this would query a database
-        valid_keys = getattr(self.settings, 'valid_api_keys', [])
+        valid_keys = getattr(self.settings, 'api_keys', [])
         is_valid = api_key in valid_keys if valid_keys else False
         
         # Cache result
